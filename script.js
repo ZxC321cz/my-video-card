@@ -5,7 +5,7 @@ const overlay = document.querySelector(".overlay");
 const videoLayer = document.getElementById("video-layer");
 
 const videoUrl =
-    "https://www.youtube.com/embed/1gfDZ6YojGk?autoplay=1&mute=1&controls=1&loop=1&playlist=1gfDZ6YojGk&rel=0&modestbranding=1&enablejsapi=1&playsinline=1";
+    "https://www.youtube.com/embed/S3agERkvEjo";
 
 function sendPlayerCommand(func, args = []) {
     if (!iframe.contentWindow) {
