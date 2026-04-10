@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+}
+
+.main-wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: url('https://kes-basket.ru/wp-content/uploads/2020/12/31283-basker.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.video-large-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80vw;
+    height: 80vh;
+    max-width: 1400px;
+    max-height: 900px;
+    z-index: 4;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.94);
+    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.video-large-container.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#bg-video {
+    width: 100%;
+    height: 100%;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    pointer-events: none;
+    opacity: 1;
+    transition: background 0.4s ease, opacity 0.4s ease;
+}
+
+.overlay.is-bright {
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.overlay.is-hidden {
+    opacity: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 3;
+    color: #fff;
+    text-align: center;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    max-width: 90%;
+    animation: fadeIn 1.4s ease-in-out;
+    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+}
+
+#play-btn {
+    margin-top: 20px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    background: #ff4757;
+    color: #fff;
+    border: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+}
+
+#play-btn:hover {
+    background: #ff6b81;
+    transform: scale(1.05);
+}
+
+.content.hidden {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .video-large-container {
+        width: 92vw;
+        height: 70vh;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
